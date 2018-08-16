@@ -1,0 +1,41 @@
+filebeat.prospectors:
+- type: log
+  paths:
+    - /efs/logs/httpd/www1/error_log*
+
+  fields:  {type: apache_error_log}
+
+- type: log
+  paths:
+    - /efs/logs/httpd/www1/access_log*
+
+  fields:  {type: apache_access_log}
+
+- type: log
+  paths:
+    - /efs/logs/httpd/www1/ssl_access_log*
+
+  fields:  {type: ssl_access_log}
+
+- type: log
+  paths:
+    - /efs/logs/httpd/www1/ssl_error_log*
+
+  fields:  {type: ssl_error_log}
+
+- type: log
+  paths:
+    - /efs/logs/httpd/www1/ssl_request*
+
+  fields:  {type: ssl_request_log}
+
+
+
+- type: log
+  paths:
+    - /efs/logs/sf-integration/sf-database-error*
+    - /efs/logs/sf-integration/sf-rest-api-error*
+
+  fields:  {type: salesforce_error_log}
+output.logstash:
+  hosts: ["localhost:5000"]
