@@ -1,0 +1,1 @@
+SALESFORCE %{TIMESTAMP_ISO8601:timestamp} (\[(?:%{USERNAME:op1})\]\[(?:%{USERNAME:op2})\]\[(?:%{USERNAME:op3})\])\[(?:%{WORD:type})\]\[(?:%{USERNAME:type})\] %{GREEDYDATA:msg}

@@ -10,8 +10,8 @@ services:
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "9400:9200"
+      - "9500:9300"
     environment:
       ES_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
@@ -25,6 +25,7 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - ./logstash/patterns:/etc/logstash/patterns.d/
     ports:
       - "5000:5000"
     environment:
