@@ -28,6 +28,7 @@ services:
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
       - ./logstash/patterns:/etc/logstash/patterns.d/
       - ./logstash/connectors:/usr/share/logstash/connectors
+      - ./logstash/data:/usr/share/logstash/data
     ports:
       - "5000:5000"
     environment:

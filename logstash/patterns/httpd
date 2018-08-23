@@ -14,6 +14,8 @@ HTTPD_ACCESS_LOG %{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:ti
 
 SSL_ACCESS_LOG %{IPORHOST:clientip} %{NOTSPACE:ident} %{NOTSPACE:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion}))" %{NOTSPACE:response}
 
+SSL_ERROR_LOG \[%{HTTPDERROR_DATE:timestamp}\] \[(%{WORD:module})?:%{LOGLEVEL:loglevel}\] \[pid %{POSINT:pid}(:tid %{NUMBER:tid})?\]( \(%{POSINT:proxy_errorcode}\)%{DATA:proxy_message}:)?( \[client %{IPORHOST:clientip}:%{POSINT:clientport}\])?( %{DATA:errorcode}:)? %{GREEDYDATA:message}
+
 SSL_REQUEST_LOG \[%{HTTPDATE:timestamp}\] %{IPORHOST:clientip} %{NOTSPACE:tls_version} %{NOTSPACE:crypto_algorithm} \"(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})\" %{NUMBER:response}
 
 # Deprecated
